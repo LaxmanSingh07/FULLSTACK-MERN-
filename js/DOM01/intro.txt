@@ -1,0 +1,8 @@
+//window is an object in js
+
+//it is an global object 
+//this is created by the browser 
+
+//DOM,BOM,JS   -----> are the subset of the window
+
+//document is an object in js

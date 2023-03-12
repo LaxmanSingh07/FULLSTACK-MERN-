@@ -1,0 +1,38 @@
+/* p{
+    position:  static;
+} */
+
+
+.box{
+    display: inline-block;
+    background-color: aqua;
+    width: 200px;
+    height: 200px;
+    border: 2px solid red;
+
+}
+
+.wrapper
+{
+    height: 1000px;
+    width: 100vw;
+    background-color: blueviolet;
+}
+
+/* .box
+{ */
+
+    /* relative to its normal position */
+    /* position: relative;  */
+    /* position: absolute; */
+    /* left: 100px;
+    top: 100px; */
+/* } */
+
+#c3{
+    /* it is relative to the viewport */
+    position: fixed; 
+    /* position:sticky; */
+    /* fixed vs sticky */
+    top: 0px;
+}

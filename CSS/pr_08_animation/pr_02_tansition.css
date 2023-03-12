@@ -1,0 +1,69 @@
+.container
+{
+
+    height: 500px;
+    width: 500px;
+    background-color: rgb(34, 0, 128);
+    border: 3px solid red;
+    display: flex;
+}
+
+.box
+{
+    height: 150px;
+    width: 150px;
+    border: 2px solid orange;
+    background-color: rgb(211, 30, 193);
+    margin: 20px;
+    padding: 15px;
+    /* transition: 2s; */
+
+    /* transition-property for all the element but it is not a good practice */
+    /* performance bad practice  */
+    transition-property: all;
+    /* Specifies the name of the CSS property to which the transition is applied. */
+    /* transition-property: background-color; */
+    /* transition-delay: 2s; */
+
+
+
+    /* transition: ; */
+    /* Shorthand property combines four of the transition properties into a single property. */
+    /* transition: background-color; */
+    /* transition: transform 0.5s ease 0s; */
+    /* transition: background-color 0.5s ease 0s; */
+    /* transition: transform background-color 0.5s ease 0s; */
+    /* transition: all 0.5s ease 0s; */
+    
+    
+
+    /* transition: transform 3s ease-out; */
+    /* cubic-bezier(1,-0.11, 0, 1.42) */
+    /* transition: transform 3s cubic-bezier(1,-0.11, 0, 1.42); */
+    
+    /* transition-property: transform;
+    transition-duration: 3s;
+    transition-timing-function: cubic-bezier(1,-0.11,0,1.42); */
+    /* transition-delay: 1s; */
+    
+    /* by deafult  */
+    transition: all 0.5s ease 0s;
+    
+}
+
+/* .box:hover
+{
+    background-color: blueviolet;
+    cursor: pointer;
+    transform: rotate(45deg);
+} */
+
+
+.box:hover
+{
+    cursor: pointer;
+    /* transform: translateX(500px); */
+    background-color: blueviolet;
+
+    transform: translateX(501px) rotate(4deg) scaleX(2);
+}

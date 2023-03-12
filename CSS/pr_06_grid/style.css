@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    background-color: brown;
+    height: 500px;
+    border: 2px solid black;
+
+    /* if you want to makecolumn */
+
+    /* grid-template-columns: 200px 200px 210px; */
+
+    /* for column */
+
+    /* it will make the four rows */
+    /* grid-template-rows: 200px 200px 200px 200px; */
+
+    /* but it is absolute unit px which is not a good practice let's do with another units like fr (fraction )
+     */
+
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-rows: 1fr 1fr 1fr ;
+
+    /* if you want to make more rows and columns then you can use the repeact function 
+    */
+    grid-template-columns: repeat(4,1fr);
+    
+    /* you can define widht and height of the one column or row only
+    */
+
+    /* it is known as the flexible grid */
+    /* grid-template-rows: 300px repeat(4,1fr) 200px; */
+    gap: 45px;
+}
+
+.box{
+    background-color: aquamarine;
+    border: 1px solid black;
+    /* width: 80px;
+    height: 80px; */
+}
+
+/* #box1
+{
+    /* grid will shift assume it like this 
+     */
+    /* grid-column-start: 1;
+    grid-column-end: 4;
+} */ 
+
+#box1{
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+/* grid-row and grid-column shorthand  */
+
+

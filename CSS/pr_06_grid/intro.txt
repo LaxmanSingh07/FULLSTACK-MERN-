@@ -1,0 +1,7 @@
+2d dimension space 
+
+2d array 
+flex vs grid
+
+we have to do the display grid 
+

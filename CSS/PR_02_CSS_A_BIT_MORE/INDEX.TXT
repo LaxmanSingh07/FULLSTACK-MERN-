@@ -1,0 +1,73 @@
+Gradients 
+
+Css Gradients
+
+Smooth Transitions between two or more specified colors.
+
+Linear Gradient 
+    1. left to right 
+    2. right to left 
+    3. diagonally 
+
+
+to create a linear gradient you must define at least tow color stops. colors stops are the color you want to render smo
+
+
+
+
+Radial Gradients 
+
+A radial gradient is defined 
+
+
+explore time 
+(please do it lucky)
+
+Conic Gradient 
+
+
+css shadow effects 
+
+with css you can add shadow totext and to elements 
+
+text-shadow
+box-shadow
+
+
+
+css Dimension Properties 
+width
+height
+min-height ---->
+min-widht  ---->
+max-height ----> 
+max-widht  ---->
+
+
+
+
+
+position property is the css 
+
+the position property specifies the type of  positioning method used for an elements(static (by default ))
+
+
+position relative :
+An elements with position: relative; is positioned relative to its normal position 
+
+setting the top right bottom and left Properties 
+
+
+exercise time 
+
+position text in all corners && center of an image 
+
+
+
+CSS TRANSFORMS 
+
+css TRANSFORMS allow you to move, rotate  scale, and skew elements 
+
+. with TRANSFORMS property you can use following methodSl
+
+tr

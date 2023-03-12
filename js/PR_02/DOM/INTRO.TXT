@@ -1,0 +1,24 @@
+what is window 
+
+window ----> it is an object 
+-----> it is a global object 
+----> this is created by browser 
+
+
+        window
+
+
+Dom         BOM             JS
+
+
+
+DOM --- > DOCUMENT OBJECT MODEL 
+
+(JS OBJECT)
+
+BOM -----> TO USE TO COMMUNICATE WITH THE browser
+---> OTHER THAN THE CONTENT OF THE PAGE 
+
+
+CHARACTER ---> TAGES ---> TOKEN ------> NODES 
+                        (TOKONISZER)

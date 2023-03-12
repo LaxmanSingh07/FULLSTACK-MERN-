@@ -1,0 +1,22 @@
+div{
+    height: 300px;
+    width: 300px;
+    background-color: aqua;
+    border: 2px solid black;
+}
+
+
+.translated
+{
+    /* if you want to change in the z axies then you have to on the prespective  */
+
+    transform: perspective(10px) translateZ(-20px);
+}
+.scaled
+{
+    margin-left: 1000px;
+    /* transform: perspective(350px) scaleZ(2)  rotateX(45deg); */
+
+    /* why there is no need to use of perspective  */
+    transform: rotate(45deg); 
+}

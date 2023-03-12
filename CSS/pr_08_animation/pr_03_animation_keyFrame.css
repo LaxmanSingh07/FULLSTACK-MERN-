@@ -1,0 +1,58 @@
+.container
+{
+    height: 215px;
+    width: 100%;
+    background-color: yellow;
+    border: 2px solid red;
+
+}
+
+.box
+{
+ height: 212px;
+ width: 212px;
+ border: 2px solid green;
+ /* background-color: aqua; */
+
+ animation-name: hello;
+ animation-duration: 3s;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+ animation-delay: 1s;
+ /* animation-direction: alternate; */
+ /* animation-fill-mode:backwards ; */
+ /* animation-fill-mode: forwards; */
+ /* animation-fill-mode: both; */
+
+}
+
+
+@keyframes hello {
+    /* from{
+            width: 212px;
+    }
+    50%{
+        background-color: red;
+    }
+    to{
+        width: 800px;
+    } */
+    
+
+    0%
+    {
+        background-color: orange;
+        width: 33%;
+
+    }
+
+    33%{
+        background-color: white;
+        width: 66%;
+    }
+
+    100%{
+        background-color: green;
+        width:100%;
+    }
+}

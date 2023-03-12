@@ -1,0 +1,23 @@
+:root
+{
+    /* scope is global variable*/
+    --dark-red:#981a2c
+}
+.container
+{
+    border: 1px solid brown;
+    background-color: red;
+    height: 300px;
+    width: 300px;
+}
+
+.box
+{
+    border: 2px solid green;
+    background-color: aqua;
+    /* it is local to this box only */
+/* --dark-red:#981a2c; */
+    /* color: #981a2c; */
+
+    color: var(--dark-red);
+}

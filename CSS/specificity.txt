@@ -1,0 +1,98 @@
+Because elements can have mulitple css selectors,
+ there is a hierchy for the weight give to each type of selector.
+  Here is the logical order of selectors from least to most weight assigned .
+
+Types selectors (eg ..h1) and pse
+
+class selector
+
+id selector 
+
+
+
+color in the csss
+
+hexadecimal color 
+
+
+_ _ _ _ _ _ 
+
+hex value from 0 to F
+2 for red, 2 for green , 2 for blue
+
+#RRGGBB
+
+#ff0000 --->  red 
+#00ff00 ----> green 
+
+
+
+RGB VALUE (_,_,_)
+
+0,255
+
+// predefined/cross browser color name 
+140 
+
+
+
+font 
+ font-family
+
+ font-weight
+ font-style
+ emphasis & important 
+ how to add external fonts
+
+ overflow
+
+
+
+units in html 
+
+1. Absoulte unit 
+2. Percentage unit
+3. Relative units
+  1. Relative to font size 
+  2. Related to Document 
+
+
+px ----> fixed  (1/96) inch
+
+
+Absoulte unit 
+mm
+cm
+in
+px
+
+high resolution device 
+
+100 px no of hardware pixle my be more in the present computer
+super mario density high  --> more good it is 
+
+
+Percentage unit 
+
+div
+{
+  width 10% ---> 10% of the width of parent 
+}
+
+if the parent is not present then it will be relative to body
+
+Relative unit of font size 
+
+em  parent's font size ke relative hota hai ye 
+rem   (relative to root ) (html)
+
+1 em=parent size*1;
+
+
+
+relative to the viewport 
+
+vw --- 1/100 * widht of viewport
+vh --- 1/100 * height of viewport
+
+1% vs 1 vw 

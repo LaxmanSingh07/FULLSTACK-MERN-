@@ -1,0 +1,53 @@
+.container
+{
+    border: 1px solid brown;
+    background-color: yellow;
+    height: 700px;
+    width: 600px;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px;
+
+    gap: 10px;
+    /* grid-gap: 10px; */
+    /* main axies */
+    /* justify-content: start; */
+    /* justify-content: center; */
+    /* justify-content: end; */
+    /* justify-content: space-around; */
+    /* justify-content: space-between; */
+    /* justify-content: space-evenly; */
+
+    /* cross axies */
+    /* align-items: center;
+    align-items: start;
+    align-items: end;
+    align-items: baseline; */
+
+    /* align-content: space-between; */
+
+    /* shorthand */
+    /* <'align-content'> <'justify-content'> */
+    place-content:center; 
+
+    place-items: center;
+}
+
+.box{
+    
+    border: 1px solid red;
+    background-color: aquamarine;
+
+    /* child */
+
+
+}
+#box1{
+    /* justify-self: start; */
+    /* justify-self: center; */
+    align-self: center;
+}
+
+/* grid-inline vs grid */
+
+/* use flex and grid at once */

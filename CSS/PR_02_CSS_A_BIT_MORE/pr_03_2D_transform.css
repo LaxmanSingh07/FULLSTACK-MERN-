@@ -1,0 +1,21 @@
+.box1{
+    background-color: red;
+    border: 5px solid blue;
+    height: 200px;
+    width: 200px;
+    /* Translate in both the axies i.e in x as well y */
+    /* shorhand */
+    /* transform: translate(100px,200px);  */
+    /* transform: translateX(70px); */
+    /* transform: translateY(40px); */
+    /* margin: 50px; */
+    /* horizontal , vertial scale of the element  */
+    /* transform: rotate(45deg); */
+    /* transform: scale(4,2); */
+
+    /* transform: scaleX(2);
+    transform: scaleY(2); */
+
+    transform: skew(180deg);
+    /* transform: matrix(); */
+}

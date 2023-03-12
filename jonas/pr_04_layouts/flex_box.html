@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox</title>
+    <style>
+      .el--1 {
+        background-color: blueviolet;
+      }
+      .el--2 {
+        background-color: orangered;
+      }
+      .el--3 {
+        background-color: green;
+        height: 150px;
+      }
+      .el--4 {
+        background-color: goldenrod;
+      }
+      .el--5 {
+        background-color: palevioletred;
+      }
+      .el--6 {
+        background-color: steelblue;
+      }
+      .el--7 {
+        background-color: yellow;
+      }
+      .el--8 {
+        background-color: crimson;
+      }
+
+      .container {
+        /* STARTER */
+        font-family: sans-serif;
+        background-color: #ddd;
+        font-size: 30px;
+        margin: 40px;
+        width: 700px;
+        /* gap: 30px; */
+
+        /* FLEXBOX */
+/* bydefault horizontal*/
+        display: flex;
+        /* vertical center */
+        align-items: center;
+        /* align-items: flex-end; */
+        /* align-items: flex-start; */
+        /* align-items: stretch; it is default value  */
+
+            /* horizontal centering of the element  */
+        /* justify-content: center; */
+        justify-content: flex-start;
+
+
+      }
+      .el--1{
+        align-self: flex-start;
+        /* all the elements as rquired width will be taken by the el--1 will take rest of all width */
+        /* flex-grow: 1; */
+      }
+   .el--5{
+    align-self: stretch;
+   }
+   .el--6{
+    /* by default order is 0 */
+    /* order: -1; */
+   }
+   .el{
+    /* DEFAULT */
+
+    /* flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto; */
+/* width may be less or more as specified but it is due to the by default shrink */
+
+/* it is not regid it is generally a recomandataion 
+it depends on the browser it may either  */
+/* flex-shrink is by default */
+
+/* if there is not enought space to accumdate the entire iteam then by default it is always allow you to shrink
+ */
+    /* flex-basis: 150px; */
+    /* width: 100px; */
+    flex-shrink: 0;
+    /* if flex-grow is 0 then will take that much space which is required by them */
+    /* but if 1 then it will take the entire width */
+    /* flex-grow: 1; */
+   }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="el el--1">HTML</div>
+      <div class="el el--2">and</div>
+      <div class="el el--3">CSS</div>
+      <div class="el el--4">are</div>
+      <div class="el el--5">amazing</div>
+      <!-- <div class="el el--6">languages</div>
+      <div class="el el--7">to</div>
+      <div class="el el--8">learn</div> -->
+    </div>
+  </body>
+</html>

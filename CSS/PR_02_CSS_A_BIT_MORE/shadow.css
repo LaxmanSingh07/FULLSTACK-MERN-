@@ -1,0 +1,27 @@
+/* two paramter(:horizontal ::shadow and :vertical ::shadow) */
+
+/* third parameter can be your bluller effect */
+h1{
+    text-shadow: 3px 3px 2px red;
+    /* mulitple shadow can be made like this  */
+    text-shadow: 3px 3px 2px red,5px 5px 2px green; 
+    
+}
+
+.box
+{
+    background-color: aqua;
+    color: brown;
+    width: 200px;
+    height: 200px;
+    /* if you don't defined the color of the shadow then the color of your element shadow will be same as that of text color
+     */
+    box-shadow: -10px -10px 1px ,14px 14px 3px greenyellow;
+
+    /* if you want to change the shadow postion then you can change using the negative value  */
+}
+
+/* how can we add the  border of the text using the shadow property */
+
+/* how to use the spread in the css */
+
