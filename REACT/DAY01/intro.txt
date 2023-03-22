@@ -1,0 +1,21 @@
+REACT ---> JS LIBRARY ---> UI CREATE
+
+Magical line ---> React is all about components
+what is component ---> reusable piece of code
+
+imprative vs declarative --->
+imprative ---> how to do something
+declarative ---> what to do
+
+why React --->
+1. Virtual DOM ---> DOM is a tree structure
+2. JSX ---> JS + HTML
+3. Component based ---> reusable piece of code
+4. One way data flow ---> data flows in one direction
+5. Declarative ---> what to do
+6. React Native ---> mobile app development
+
+React is a library ---> not a framework
+
+SPA ---> SINGLE PAGE APPLICATION
+
