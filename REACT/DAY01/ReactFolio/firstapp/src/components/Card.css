@@ -1,0 +1,6 @@
+.card{
+    display: flex;
+    color: white;  /*in case of react */
+    width: 100vw;
+    height: 100vh;
+}
