@@ -1,46 +1,42 @@
 // import logo from './logo.svg';
 import './App.css';
-import Iteam from './components/Iteam'
-import ItemDate from './components/itemDate';
+import Iteam from './components/ProductItem'
+import ItemDate from './components/ProudctDate';
 import Card from './components/Card';
 function App() {
-  const response=[
+  const products=[
     {
-     itemName:"Sugar",
-     itemDate:"20",
-     itemMonth:"March",
-     itemYear:"2021"
+      id:'p1',
+      title:'Nirma',
+      amount:100,
+      date:new Date(2021,7,14)
     },
     {
-      itemName:"Sugar2",
-      itemDate:"21",
-      itemMonth:"March2",
-      itemYear:"2022"
+      id:'p2',
+      title:'Detergent',
+      amount:200,
+      date:new Date(2021,7,14)
+
      },
     {
-      itemName:"Noodles",
-      itemDate:"21",
-      itemMonth:"March2",
-      itemYear:"2042"
-     }
+      id:'p3',
+      title:'Soap',
+      amount:300,
+      date:new Date(2021,7,14)
 
-    
-  ]
+     },
+     {
+      id:'p4',
+      title:'Shampoo',
+      amount:400,
+      date:new Date(2021,7,14)
+
+     },
+  ];
+
   return (
     <div>
-      <Card>
-    
-      <Iteam name={response[0].itemName} 
-        
-      >Hello guys</Iteam>
-      <ItemDate day={response[0].itemDate} month={response[0].itemMonth} year={response[0].itemYear} />
-      <Iteam name={response[1].itemName} />
-      <ItemDate day={response[1].itemDate} month={response[1].itemMonth} year={response[1].itemYear} />
-      <Iteam name={response[0].itemName} />
-      <ItemDate day={response[0].itemDate} month={response[0].itemMonth} year={response[0].itemYear} />
-
-      </Card>
-
+      <products items={products}/>
     </div>
   );
 }
