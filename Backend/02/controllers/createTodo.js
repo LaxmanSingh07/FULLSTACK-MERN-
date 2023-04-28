@@ -9,6 +9,7 @@ exports.createTodo=async (req,res)=>{
         //extract title and description from req.body
         const {title,description}=req.body;
 
+        console.log(title,description);
         //create a new todo object and insert it to the database
 
         const response=await Todo.create({

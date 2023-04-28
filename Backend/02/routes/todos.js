@@ -7,6 +7,6 @@ const {createTodo}=require('../controllers/createTodo');
 
 //define the route
 
-router.post('/createTodo',createTodo);
+router.post('/createTodo',createTodo); //mapping of routes with controller
 
 module.exports=router;
