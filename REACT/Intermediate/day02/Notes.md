@@ -120,3 +120,12 @@ nested routing refers to the practice of defining routes within other routes. Th
 Outlet tag is used to render the child component. It is used to render the child component.
 
 
+```js
+<Route index element={<Home />}/> 
+```
+
+`USE nevigate hook `:
+
+useNavigate hook is used to navigate to the other page. It is used to navigate to the other page.
+
+
