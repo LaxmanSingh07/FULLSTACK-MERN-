@@ -49,6 +49,14 @@ It is used to hash the password. It is a one way hashing algorithm. It is used t
 CyrptoGraphically Secure Hashing Algorithm (CSHA) is used to hash the password. It is a one way hashing algorithm. It is used to hash the password before storing it in the database. It is also used to hash the password before comparing it with the password stored in the database.
 
 
+`Some encryption algorithms are`: MD5, SHA1, SHA256, SHA512, etc.
+
+
+## Cookies
+
+Cookies are used to store the JWT. Cookies are sent in the header of the request. Cookies are stored in the browser. Cookies are sent to the server with every request. Cookies are used to store the JWT. Cookies are sent in the header of the request. Cookies are stored in the browser. Cookies are sent to the server with every request. Cookies are used to store the JWT. Cookies are sent in the header of the request. Cookies are stored in the browser. Cookies are sent to the server with every request. Cookies are used to store the JWT. Cookies are sent in the header of the request. Cookies are stored in the browser. Cookies are sent to the server with every request. Cookies are used to store the JWT. Cookies are sent in the header of the request. Cookies are stored in the browser. Cookies are sent to the server with every request. Cookies are used to store the JWT. Cookies are sent in the header of the request. Cookies are stored in the browser. Cookies are sent to the server with every request. Cookies are used to store the JWT. Cookies are sent in the header of the request. Cookies are stored in the browser. Cookies are sent to the server with every request. Cookies are used to store the JWT. Cookies are sent in the header of the request. Cookies are stored in the browser. Cookies are sent to the server with every request.
+
+
 `Comman Flow for SignUp`
 
 (This is how I have implemented it. There are other ways to implement it.)
@@ -61,3 +69,15 @@ CyrptoGraphically Secure Hashing Algorithm (CSHA) is used to hash the password. 
 
 `Comman Flow for Login`
 
+
+
+## Middleware
+
+Middleware is Used for the following purposes:
+
+1. To execute code.
+2. To modify the request and response objects.
+3. To end the request-response cycle.
+4. To call the next middleware function in the stack.
+5. If the current middleware function does not end the request-response cycle, it must call next() to pass control to the next middleware function. Otherwise, the request will be left hanging.
+6. Authentication and Authorization are implemented using middleware.
