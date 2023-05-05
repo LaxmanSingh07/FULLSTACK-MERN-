@@ -15,11 +15,16 @@ exports.auth = (req, res, next) => {
     //but for simplicity we are sending token in body
     //you can send token in header as well
 
-    const token = req.body.token;
+    // console.log("cookies", req.cookies.token);
+    // console.log("body", req.body.token);
+    // console.log("headers", req.headers("Authorization"));
 
+    // const token=req.cookies.token||req.body.token||req.headers("Authorization").replace("Bearer ","");
+    const token=req.headers("Authorization").replace("Bearer ","");
+    console.log("token", token)
     // check if token exists
 
-    if (!token) {
+    if (!token||token==="") {
       return res.status(401).json({
         // 401 unauthorized
         success: false,

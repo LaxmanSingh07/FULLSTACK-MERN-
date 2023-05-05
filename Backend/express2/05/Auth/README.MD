@@ -81,3 +81,40 @@ Middleware is Used for the following purposes:
 4. To call the next middleware function in the stack.
 5. If the current middleware function does not end the request-response cycle, it must call next() to pass control to the next middleware function. Otherwise, the request will be left hanging.
 6. Authentication and Authorization are implemented using middleware.
+
+
+## Token Based Authentication
+
+
+We have to send the token in the header of the request. We can send the token in the header of the request in two ways:
+
+1. Using Cookies : Cookies are sent in the header of the request. Cookies are stored in the browser. Cookies are sent to the server with every request.
+
+2. Using Authorization Header : (key : Authorization, value : Bearer token) Authorization header is sent in the header of the request. Authorization header is not stored in the browser. Authorization header is sent to the server with every request.
+
+### Hot Do Json Web Tokens Work?
+
+```link
+Documentation : https://jwt.io/introduction/
+
+```
+
+## BEARER TOKEN
+
+It is secure way.
+
+Why Bearer Token is secure?
+
+1. It is not stored in the browser.
+2. It is not sent in the header of the request.
+3. It is not stored in the database.
+4. It is not sent in the response.
+5. It is not stored in the server.
+
+
+
+ `Express-FileUpload are middleware libraries`
+
+
+## Express-FileUpload
+
