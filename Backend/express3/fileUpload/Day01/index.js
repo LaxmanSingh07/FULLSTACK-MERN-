@@ -14,7 +14,12 @@ const PORT = process.env.PORT || 5000;
 // add middlewares
 
 app.use(express.json());
-app.use(fileupload()); // you can use the flag inside the fileupload() to enable/disable the file upload
+app.use(fileupload(
+  {
+    useTempFiles: true,
+    tempFileDir: "/tmp/",
+  }
+)); // you can use the flag inside the fileupload() to enable/disable the file upload
 
 // db connection
 
@@ -27,6 +32,10 @@ cloudinary.cloudinaryConnect();
 // routes mounting
 
 app.use("/api/v1/upload", fileUpload);
+
+//fetch image
+//validate image
+
 
 // server listening
 
