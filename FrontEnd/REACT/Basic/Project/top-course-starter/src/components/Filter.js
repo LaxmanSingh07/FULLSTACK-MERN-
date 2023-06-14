@@ -1,6 +1,7 @@
 import React from "react";
 
- const Filter = ({ filterData }) => {
+ const Filter = (props) => {
+  const { filterData } = props;
   return (
     <div>
       {filterData.map((data) => {
