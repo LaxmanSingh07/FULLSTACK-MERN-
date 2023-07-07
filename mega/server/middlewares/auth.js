@@ -64,7 +64,7 @@ exports.isAdmin = async (req, res, next) => {
         {
            return res.status(401).json({
             success: false,
-            message:"This is protected route for the admin only"
+            message:"This is protected route for the Admin only"
            }) 
         }
 
@@ -73,7 +73,7 @@ exports.isAdmin = async (req, res, next) => {
 
         return res.status(500).json({
             success: false,
-            message:"User Role can't be verified"            
+            message:"Admin Role can't be verified"            
         })
     }
 
