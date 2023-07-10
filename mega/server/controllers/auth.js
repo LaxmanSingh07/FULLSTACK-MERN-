@@ -12,6 +12,7 @@ exports.sendOtp = async (req, res) => {
   try {
     //1. get email from req.body
     const { email } = req.body;
+    // console.log(email);
 
     //check the email is following the email pattern or not
 
@@ -37,24 +38,25 @@ exports.sendOtp = async (req, res) => {
     //3. generate otp
 
     let otp = otpGenerator.generate(6, {
-      upperCase: false,
+      upperCaseAlphabets: false,
+      lowerCaseAlphabets: false,
       specialChars: false,
-      alphabets: false,
     });
+
     console.log("otp generated: ", otp);
 
     //4. check if otp already exists in db to prevent duplicate otp
 
-    const isOtpPre = await OIP.findOne({ otp: otp });
+    const isOtpPre = await OTP.findOne({ otp: otp });
 
     // if otp already exists then generate new otp and check again if it exists in db
 
     while (isOtpPre) {
       //it is not a good practice to use while loop here
       otp = otpGenerator.generate(6, {
-        upperCase: false,
+        upperCaseAlphabets: false,
+        lowerCaseAlphabets: false,
         specialChars: false,
-        alphabets: false,
       });
       console.log("otp generated: ", otp);
       isOtpPre = await OIP.findOne({ otp: otp });
@@ -142,7 +144,7 @@ exports.signup = async (req, res) => {
 
     // find most recent otp in db
 
-    const recentOtp = await OTP.findOne({ email: email })
+    const recentOtp = await OTP.find({ email })
       .sort({ createdAt: -1 })
       .limit(1);
     console.log("recent otp: ", recentOtp);
@@ -157,7 +159,7 @@ exports.signup = async (req, res) => {
     }
 
     // compare the otp from req.body and otp from db
-    else if (recentOtp.otp !== otp) {
+    else if (recentOtp[0].otp !== otp) {
       return res.status(400).json({
         success: false,
         message: "Invalid OTP",
@@ -233,7 +235,7 @@ exports.login = async (req, res) => {
 
     //4. compare the password
 
-    if (!(await bcrypt.compare(password, userpassword))) {
+    if (!(await bcrypt.compare(password, user.password))) {
       return res.status(401).json({
         success: false,
         message: "Invalid credentials, Password not matched",
@@ -255,18 +257,15 @@ exports.login = async (req, res) => {
     user.password = undefined;
 
     const options = {
-      expires: new Date(
-        Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
-      ),
+      expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
       httpOnly: true,
     };
-
     //6. save the token in httpOnly cookie and response
     res.cookie("token", token, options).status(200).json({
       success: true,
-      message: "User logged in successfully",
-      user,
       token,
+      user,
+      message: `User Login Success`,
     });
   } catch (error) {
     console.error(error);
@@ -335,5 +334,3 @@ exports.changePassword = async (req, res) => {
     });
   }
 };
-
-

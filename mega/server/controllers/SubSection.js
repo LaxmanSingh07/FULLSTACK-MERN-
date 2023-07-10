@@ -1,7 +1,6 @@
 const SubSection = require("../models/SubSection");
 const Section = require("../models/Section");
-const Course = require("../models/Course");
-
+const { uploadImageToCloudinary } = require("../utils/imageUploader");
 exports.createSubSection = async (req, res) => {
   try {
     //1. data fetch
@@ -17,16 +16,16 @@ exports.createSubSection = async (req, res) => {
 
     // 3. upload video to cloudinary
 
-    const uploadDetails = await uploadImageToCloudinay(
+    const uploadDetails = await uploadImageToCloudinary(
       video,
       process.env.CLOUDINARY_FOLDER_NAME
     );
 
     //4. create subSection
-    const newSubSection = await SubSection.create({
-      title,
-      timeDuration,
-      description,
+    const SubSectionDetails = await SubSection.create({
+      title: title,
+      timeDuration: `${uploadDetails.duration}`,
+      description: description,
       videoUrl: uploadDetails.secure_url,
     });
     //4. update section with subSection ObjectId
@@ -35,11 +34,11 @@ exports.createSubSection = async (req, res) => {
       {
         $push: {
           //we have to use the populate method to get the subSection details
-          subSection: newSubSection._id,
+          subSection: SubSectionDetails._id,
         },
       },
       { new: true }
-    ).populate("sectionContent");
+    ).populate("subSection");
     //5. return Response
     return res.status(200).json({
       success: true,

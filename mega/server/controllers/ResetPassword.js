@@ -3,11 +3,12 @@
 const User = require("../models/User");
 const mailSender = require("../utils/mailSender");
 const crypto = require("crypto");
+const bcrypt = require("bcrypt");
 
 exports.resetPasswordToken = async (req, res) => {
   try {
     //1. get user and password from the req.body
-    const { email } = req.body;
+    const email = req.body.email;
     //2. check if user exists with this email
     const user = await User.findOne({ email: email });
     if (!user) {
@@ -21,7 +22,7 @@ exports.resetPasswordToken = async (req, res) => {
     const resetToken = crypto.createHash("sha256").update(token).digest("hex"); // this function is used to generate hash of the token
     //4. save the reset token and expiry date in the database
     user.resetPasswordToken = resetToken;
-    user.resetPasswordExpires = Date.now() + 5 * 60 * 1000; // this will set the expiry date to 10 minutes from now
+    user.resetPasswordExpires = Date.now() + 3 * 60 * 1000; // this will set the expiry date to 10 minutes from now
     await user.save({ validateBeforeSave: false });
 
     //5. send email to the user with the reset token
@@ -31,14 +32,13 @@ exports.resetPasswordToken = async (req, res) => {
       "host"
     )}/resetPassword/${resetToken}`;
 
+    // console.log(url);
     //send email to the user
-    await mailSender({
-      email: user.email,
-      subject: "Reset Password",
-      message: `Please click on the link to reset your password: ${url}`,
-    });
-
-    //return response
+    await mailSender(
+      email,
+      "Reset Password",
+      `Please click on the link to reset your password: ${url}`,
+    );
 
     res.status(200).json({
       success: true,
@@ -67,7 +67,7 @@ exports.resetPassword = async (req, res) => {
       });
     }
     //2.1 get user with this token
-    const useDetails = await User.findOne({ token: token });
+    const useDetails = await User.findOne({ resetPasswordToken: token });
     if (!useDetails) {
       return res.status(401).json({
         success: false,
