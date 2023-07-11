@@ -4,6 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 import HighlighText from "../components/core/home/HighlightText";
 import CTAButton from "../components/core/home/Button";
 import videoUrl from "../assets/Images/banner.mp4";
+import CodeBlock from "../components/core/home/CodeBlock";
 function Home() {
   return (
     <div>
@@ -37,10 +38,51 @@ function Home() {
           </CTAButton>
         </div>
 
-        <div className="mx-3 my-7 shadow-blue-200">
+        <div className="mx-3 my-12 shadow-blue-200">
           <video muted loop autoPlay>
             <source src={videoUrl} type="video/mp4" />
           </video>
+        </div>
+        {/* code section -1 */}
+        <div>
+          <CodeBlock
+            pos={"lg:flex-row"}
+            heading={
+              <div className="text-4xl font-semibold">
+                Unlock Your
+                <HighlighText text={"Coding potential"} />
+                with our online courses
+              </div>
+            }
+            subheading={
+              "Our Courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you. "
+            }
+            ctabtn1={{
+              btnText: "Try it yourself",
+              linkto: "/signup",
+              active: true,
+            }}
+            ctabtn2={{
+              btnText: "Learn More",
+              linkto: "/login",
+              active: false,
+            }}
+            code={`import 'package:flutter/material.dart';\n
+              class CustomCard extends StatelessWidget {  CustomCard({@required this.index});\n
+              final index;\n
+    
+            @override  \n
+              Widget build(BuildContext context) {    \n
+            return Card(      \n
+                child: Column(        \n
+                  children: <Widget>[Text('Card $index')],     \n 
+                )    \n
+              );  \n
+          }\n
+      }\n`}
+            bgGradient={"from-[#F9A826] to-[#F86D1F]"}
+            codeColor={"text-yellow-25"}
+          />
         </div>
       </div>
       {/* section -2 */}
