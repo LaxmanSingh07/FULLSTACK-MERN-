@@ -125,6 +125,7 @@ export function getPasswordResetToken(email, setEmailSent) {
       const response = await apiConnector("POST", RESETPASSTOKEN_API, {
         email,
       })
+      console.log(email);
 
       console.log("RESETPASSTOKEN RESPONSE............", response)
 
@@ -182,3 +183,4 @@ export function logout(navigate) {
     navigate("/")
   }
 }
+
