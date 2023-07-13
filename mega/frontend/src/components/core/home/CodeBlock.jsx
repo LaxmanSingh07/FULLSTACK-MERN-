@@ -1,8 +1,7 @@
 import React from "react";
 import CTAButton from "./Button";
 import { FaArrowRight } from "react-icons/fa";
-import { TypeAnimation } from "react-typewriting-effect";
-
+import { TypeAnimation } from "react-type-animation";
 function CodeBlock({
   pos,
   heading,
@@ -32,23 +31,32 @@ function CodeBlock({
         </div>
       </div>
       {/* Section -2 */}
-      <div>
+      <div className=' h-fit  flex flex-row text-10[px] w-[100%] py-4 lg:w-[500px]'> 
         {/* {bg graident } */}
         <div className="text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold">
-          {code.split("\n").map((line, index) => (
-            <p key={index}>{index}</p>
-          ))}
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
+          <p>4</p>
+          <p>5</p>
+          <p>6</p>
+          <p>7</p>
+          <p>8</p>
+          <p>9</p>
+          <p>10</p>
+          <p>11</p>
+          <p>12</p>
         </div>
         <div
-          className={`w-[90%] flex flex-col gap-2 font-bold font-mono ${codeColor}`}
+          className={`w-[90%] flex flex-col gap-2 font-bold font-mono ${codeColor} pr-2`}
         >
           <TypeAnimation
-            sequence={[CodeBlock, 5000, ""]}
+            sequence={[code, 2000, ""]}
             repeat={Infinity}
             cursor={true}
             style={{
               whiteSpace: "pre-line",
-              display: "inline-block",
+              display: "block",
             }}
             omitDeletionAnimation={true}
           />
