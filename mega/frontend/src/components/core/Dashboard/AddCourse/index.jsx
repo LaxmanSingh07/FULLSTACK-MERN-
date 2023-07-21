@@ -9,7 +9,8 @@ export default function AddCourse() {
             Add Course
           </h1>
           <div className="flex-1">
-            <RenderSteps />
+            {/* to render the entire steps which steps has to be shown on the bases of the course creating steps */}
+            <RenderSteps /> 
           </div>
         </div>
         {/* Course Upload Tips */}

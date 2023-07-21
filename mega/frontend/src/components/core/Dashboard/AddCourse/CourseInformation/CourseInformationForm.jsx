@@ -12,7 +12,7 @@ import {
 } from "../../../../../services/operations/courseDetailsAPI"
 import { setCourse, setStep } from "../../../../../slices/courseSlice"
 import { COURSE_STATUS } from "../../../../../utils/constants"
-import IconBtn from "../../../../Common/IconBtn"
+import IconBtn from "../../../../common/IconBtn"
 import Upload from "../Upload"
 import ChipInput from "./ChipInput"
 import RequirementsField from "./RequirementsField"
@@ -24,14 +24,15 @@ export default function CourseInformationForm() {
     setValue,
     getValues,
     formState: { errors },
-  } = useForm()
+  } = useForm(); // it is inbuild react hook 
 
   const dispatch = useDispatch()
   const { token } = useSelector((state) => state.auth)
   const { course, editCourse } = useSelector((state) => state.course)
   const [loading, setLoading] = useState(false)
-  const [courseCategories, setCourseCategories] = useState([])
+  const [courseCategories, setCourseCategories] = useState([]); // to fetch the courses categories to show the dropdown 
 
+  
   useEffect(() => {
     const getCategories = async () => {
       setLoading(true)
@@ -133,8 +134,11 @@ export default function CourseInformationForm() {
       } else {
         toast.error("No changes made to the form")
       }
+
       return
     }
+
+    //create a new course 
 
     const formData = new FormData()
     formData.append("courseName", data.courseTitle)
@@ -163,7 +167,8 @@ export default function CourseInformationForm() {
       {/* Course Title */}
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="courseTitle">
-          Course Title <sup className="text-pink-200">*</sup>
+          {/* superscript title  */}
+          Course Title <sup className="text-pink-200">*</sup> 
         </label>
         <input
           id="courseTitle"
@@ -176,6 +181,7 @@ export default function CourseInformationForm() {
             Course title is required
           </span>
         )}
+        
       </div>
       {/* Course Short Description */}
       <div className="flex flex-col space-y-2">
@@ -220,7 +226,8 @@ export default function CourseInformationForm() {
           </span>
         )}
       </div>
-      {/* Course Category */}
+
+      {/* Course Category drop down menu*/}
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="courseCategory">
           Course Category <sup className="text-pink-200">*</sup>
@@ -266,7 +273,9 @@ export default function CourseInformationForm() {
         errors={errors}
         editData={editCourse ? course?.thumbnail : null}
       />
+
       {/* Benefits of the course */}
+
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="courseBenefits">
           Benefits of the course <sup className="text-pink-200">*</sup>
@@ -282,6 +291,8 @@ export default function CourseInformationForm() {
             Benefits of the course is required
           </span>
         )}
+
+
       </div>
       {/* Requirements/Instructions */}
       <RequirementsField

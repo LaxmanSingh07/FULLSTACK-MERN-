@@ -14,7 +14,7 @@ import {
   setEditCourse,
   setStep,
 } from "../../../../../slices/courseSlice"
-import IconBtn from "../../../../Common/IconBtn"
+import IconBtn from "../../../../common/IconBtn"
 import NestedView from "./NestedView"
 
 export default function CourseBuilderForm() {
@@ -34,11 +34,12 @@ export default function CourseBuilderForm() {
   // handle form submission
   const onSubmit = async (data) => {
     // console.log(data)
-    setLoading(true)
+    setLoading(true); // adding the loading
 
     let result
 
     if (editSectionName) {
+      // we are editing the section name
       result = await updateSection(
         {
           sectionName: data.sectionName,
@@ -57,6 +58,7 @@ export default function CourseBuilderForm() {
         token
       )
     }
+    // if the ans is valid then we have to update the value of the course
     if (result) {
       // console.log("section result", result)
       dispatch(setCourse(result))
@@ -91,6 +93,8 @@ export default function CourseBuilderForm() {
       toast.error("Please add atleast one lecture in each section")
       return
     }
+    //if there is no error then we have to just go to the next step 
+
     dispatch(setStep(3))
   }
 

@@ -11,7 +11,7 @@ import {
   deleteSubSection,
 } from "../../../../../services/operations/courseDetailsAPI"
 import { setCourse } from "../../../../../slices/courseSlice"
-import ConfirmationModal from "../../../../Common/ConfirmationModal"
+import ConfirmationModal from "../../../../common/ConfirmationModal"
 import SubSectionModal from "./SubSectionModal"
 
 export default function NestedView({ handleChangeEditSectionName }) {
@@ -138,7 +138,8 @@ export default function NestedView({ handleChangeEditSectionName }) {
                     </button>
                   </div>
                 </div>
-              ))}
+              ))
+              }
               {/* Add New Lecture to Section */}
               <button
                 onClick={() => setAddSubsection(section._id)}
@@ -151,7 +152,9 @@ export default function NestedView({ handleChangeEditSectionName }) {
           </details>
         ))}
       </div>
+
       {/* Modal Display */}
+      
       {addSubSection ? (
         <SubSectionModal
           modalData={addSubSection}

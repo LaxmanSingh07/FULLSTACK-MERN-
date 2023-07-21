@@ -24,7 +24,7 @@ export default function EnrolledCourses() {
         //   filterPublishCourse
         // )
 
-        setEnrolledCourses(filterPublishCourse)
+        setEnrolledCourses(filterPublishCourse)  // inserting the courses in the enrolled courses 
       } catch (error) {
         console.log("Could not fetch enrolled courses.")
       }
