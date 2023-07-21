@@ -8,8 +8,8 @@ import CodeBlock from "../components/core/home/CodeBlock";
 import TimelineSection from "../components/core/home/TimelineSection";
 import LearningLanguageSection from "../components/core/home/LearningLanguageSection";
 import Footer from "../components/common/Footer";
-import InstructorSection from "../components/core/home/InstructorSection.js";
-import ExploreMore from "../components/core/home/ExploreMore.js";
+import InstructorSection from "../components/core/home/InstructorSection";
+import ExploreMore from "../components/core/home/ExploreMore";
 function Home() {
   return (
     <div>
