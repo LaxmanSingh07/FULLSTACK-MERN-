@@ -7,12 +7,12 @@ import { useNavigate } from "react-router-dom"
 import { getUserEnrolledCourses } from "../../../services/operations/profileAPI"
 
 export default function EnrolledCourses() {
-  const { token } = useSelector((state) => state.auth)
+  const { token } = useSelector((state) => state.auth) ; // getting the token from auth api 
   const navigate = useNavigate()
 
   const [enrolledCourses, setEnrolledCourses] = useState(null)
 
-  useEffect(() => {
+  useEffect(() => { // network call or the backend call 
     ;(async () => {
       try {
         const res = await getUserEnrolledCourses(token) // Getting all the published and the drafted courses
