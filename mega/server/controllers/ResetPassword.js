@@ -1,110 +1,90 @@
-//resetPasswordToken
-
-const User = require("../models/User");
-const mailSender = require("../utils/mailSender");
-const crypto = require("crypto");
-const bcrypt = require("bcrypt");
-
+const User = require("../models/User")
+const mailSender = require("../utils/mailSender")
+const bcrypt = require("bcrypt")
+const crypto = require("crypto")
 exports.resetPasswordToken = async (req, res) => {
   try {
-    //1. get user and password from the req.body
-    const email = req.body.email;
-    //2. check if user exists with this email
-    const user = await User.findOne({ email: email });
+    const email = req.body.email
+    const user = await User.findOne({ email: email })
     if (!user) {
-      return res.status(401).json({
+      return res.json({
         success: false,
-        message: "User not found",
-      });
+        message: `This Email: ${email} is not Registered With Us Enter a Valid Email `,
+      })
     }
-    //3. generate reset token
-    const token = crypto.randomUUID(); // this function is used to generate random token
-    const resetToken = crypto.createHash("sha256").update(token).digest("hex"); // this function is used to generate hash of the token
-    //4. save the reset token and expiry date in the database
-    user.resetPasswordToken = resetToken;
-    user.resetPasswordExpires = Date.now() + 3 * 60 * 1000; // this will set the expiry date to 10 minutes from now
-    await user.save({ validateBeforeSave: false });
+    const token = crypto.randomBytes(20).toString("hex")
 
-    //5. send email to the user with the reset token
-    //6. send response to the user
+    const updatedDetails = await User.findOneAndUpdate(
+      { email: email },
+      {
+        token: token,
+        resetPasswordExpires: Date.now() + 3600000,
+      },
+      { new: true }
+    )
+    console.log("DETAILS", updatedDetails)
 
-    const url = `${req.protocol}://${req.get(
-      "host"
-    )}/resetPassword/${resetToken}`;
+    // const url = `http://localhost:3000/update-password/${token}`
+    const url = `https://studynotion-edtech-project.vercel.app/update-password/${token}`
 
-    // console.log(url);
-    //send email to the user
     await mailSender(
       email,
-      "Reset Password",
-      `Please click on the link to reset your password: ${url}`,
-    );
+      "Password Reset",
+      `Your Link for email verification is ${url}. Please click this url to reset your password.`
+    )
 
-    res.status(200).json({
+    res.json({
       success: true,
-      message: "Email sent Successfully",
-    });
+      message:
+        "Email Sent Successfully, Please Check Your Email to Continue Further",
+    })
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({
+    return res.json({
+      error: error.message,
       success: false,
-      message: "Unable to send email",
-    });
+      message: `Some Error in Sending the Reset Message`,
+    })
   }
-};
-
-//reset password
+}
 
 exports.resetPassword = async (req, res) => {
   try {
-    //1. get token from req.params and password from req.body
-    const { password, confirmPassword, token } = req.body; // we can access the token from the body as well becuase we are sending the token in the body from the frontend
-    //2. check if user exists with this token and token is not expired
-    if (password !== confirmPassword) {
-      return res.status(401).json({
+    const { password, confirmPassword, token } = req.body
+
+    if (confirmPassword !== password) {
+      return res.json({
         success: false,
-        message: "Password and Confirm Password are not same",
-      });
+        message: "Password and Confirm Password Does not Match",
+      })
     }
-    //2.1 get user with this token
-    const useDetails = await User.findOne({ resetPasswordToken: token });
-    if (!useDetails) {
-      return res.status(401).json({
+    const userDetails = await User.findOne({ token: token })
+    if (!userDetails) {
+      return res.json({
         success: false,
-        message: "User not found",
-      });
+        message: "Token is Invalid",
+      })
     }
-    //2.2 check if token is expired
-
-    if (useDetails.resetPasswordExpires < Date.now()) {
-      return res.status(401).json({
+    if (!(userDetails.resetPasswordExpires > Date.now())) {
+      return res.status(403).json({
         success: false,
-        message: "Token expired, Please try again",
-      });
+        message: `Token is Expired, Please Regenerate Your Token`,
+      })
     }
-
-    //3. hash the new password
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    //4. update the password in db
-
-    useDetails.password = hashedPassword;
-    useDetails.resetPasswordToken = undefined;
-    useDetails.resetPasswordExpires = undefined;
-    await useDetails.save({ validateBeforeSave: false });
-
-    //5. send response to the user
-
-    res.status(200).json({
+    const encryptedPassword = await bcrypt.hash(password, 10)
+    await User.findOneAndUpdate(
+      { token: token },
+      { password: encryptedPassword },
+      { new: true }
+    )
+    res.json({
       success: true,
-      message: "Password changed successfully",
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({
+      message: `Password Reset Successful`,
+    })
+  } catch (error) {
+    return res.json({
+      error: error.message,
       success: false,
-      message: "Unable to change password",
-    });
+      message: `Some Error in Updating the Password`,
+    })
   }
-};
+}
