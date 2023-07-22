@@ -9,7 +9,7 @@ import {
   updateSubSection,
 } from "../../../../../services/operations/courseDetailsAPI"
 import { setCourse } from "../../../../../slices/courseSlice"
-import IconBtn from "../../../../Common/IconBtn"
+import IconBtn from "../../../../common/IconBtn"
 import Upload from "../Upload"
 
 export default function SubSectionModal({
@@ -38,6 +38,7 @@ export default function SubSectionModal({
 
   useEffect(() => {
     if (view || edit) {
+      //subsection is already creaeted then you can view and edit the course 
       // console.log("modalData", modalData)
       setValue("lectureTitle", modalData.title)
       setValue("lectureDesc", modalData.description)
@@ -77,6 +78,8 @@ export default function SubSectionModal({
       formData.append("video", currentValues.lectureVideo)
     }
     setLoading(true)
+    // edit api call 
+     
     const result = await updateSubSection(formData, token)
     if (result) {
       // console.log("result", result)
@@ -110,6 +113,7 @@ export default function SubSectionModal({
     formData.append("description", data.lectureDesc)
     formData.append("video", data.lectureVideo)
     setLoading(true)
+    // API CALL
     const result = await createSubSection(formData, token)
     if (result) {
       // update the structure of course

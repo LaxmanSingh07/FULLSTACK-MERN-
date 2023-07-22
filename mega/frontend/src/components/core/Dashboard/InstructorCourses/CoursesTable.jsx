@@ -16,7 +16,7 @@ import {
   fetchInstructorCourses,
 } from "../../../../services/operations/courseDetailsAPI"
 import { COURSE_STATUS } from "../../../../utils/constants"
-import ConfirmationModal from "../../../Common/ConfirmationModal"
+import ConfirmationModal from "../../../common/ConfirmationModal"
 
 export default function CoursesTable({ courses, setCourses }) {
   const dispatch = useDispatch()
@@ -59,6 +59,7 @@ export default function CoursesTable({ courses, setCourses }) {
           </Tr>
         </Thead>
         <Tbody>
+
           {courses?.length === 0 ? (
             <Tr>
               <Td className="py-10 text-center text-2xl font-medium text-richblack-100">
@@ -67,6 +68,7 @@ export default function CoursesTable({ courses, setCourses }) {
               </Td>
             </Tr>
           ) : (
+            //inorder to resuse the same code I am using the map method 
             courses?.map((course) => (
               <Tr
                 key={course._id}

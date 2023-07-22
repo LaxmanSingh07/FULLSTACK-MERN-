@@ -20,7 +20,7 @@ function Course_Slider({ Courses }) {
         <Swiper
           slidesPerView={1}
           spaceBetween={25}
-          loop={true}
+          loop={true}// to do the scrolling infinite 
           modules={[FreeMode, Pagination]}
           breakpoints={{
             1024: {

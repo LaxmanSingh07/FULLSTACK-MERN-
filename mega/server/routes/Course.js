@@ -11,7 +11,11 @@ const {
   getCourseDetails,
 } = require("../controllers/Course")
 
+//route for course progress
 
+const {
+  updatedCourseProgress
+}=require("../controllers/courseProgress")
 // Categories Controllers Import
 const {
   showAllCategories,
@@ -65,6 +69,8 @@ router.post("/addSubSection", auth, isInstructor, createSubSection)
 router.get("/getAllCourses", getAllCourses)
 // Get Details for a Specific Courses
 router.post("/getCourseDetails", getCourseDetails)
+
+router.
 
 // ********************************************************************************************************
 //                                      Category routes (Only by Admin)

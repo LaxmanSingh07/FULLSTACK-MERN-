@@ -14,7 +14,7 @@ const VideoDetails = () => {
   const { courseId, sectionId, subSectionId } = useParams()
   const navigate = useNavigate()
   const location = useLocation()
-  const playerRef = useRef(null)
+  const playerRef = useRef(null) // to achieve the rewach functionality
   const dispatch = useDispatch()
   const { token } = useSelector((state) => state.auth)
   const { courseSectionData, courseEntireData, completedLectures } =
@@ -134,6 +134,7 @@ const VideoDetails = () => {
       currentSectionIndx
     ].subSection.findIndex((data) => data._id === subSectionId)
 
+    //same section previous video
     if (currentSubSectionIndx !== 0) {
       const prevSubSectionId =
         courseSectionData[currentSectionIndx].subSection[
@@ -142,6 +143,8 @@ const VideoDetails = () => {
       navigate(
         `/view-course/${courseId}/section/${sectionId}/sub-section/${prevSubSectionId}`
       )
+
+      //different section previous video
     } else {
       const prevSectionId = courseSectionData[currentSectionIndx - 1]._id
       const prevSubSectionLength =
@@ -158,10 +161,12 @@ const VideoDetails = () => {
 
   const handleLectureCompletion = async () => {
     setLoading(true)
+    // marktheLectureAsComplete
     const res = await markLectureAsComplete(
       { courseId: courseId, subsectionId: subSectionId },
       token
     )
+    //state update
     if (res) {
       dispatch(updateCompletedLectures(subSectionId))
     }
@@ -194,6 +199,7 @@ const VideoDetails = () => {
               }}
               className="full absolute inset-0 z-[100] grid h-full place-content-center font-inter"
             >
+              {/* condition to check wheather the current video has marked as completedd  */}
               {!completedLectures.includes(subSectionId) && (
                 <IconBtn
                   disabled={loading}

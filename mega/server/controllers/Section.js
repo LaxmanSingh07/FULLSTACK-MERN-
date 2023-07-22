@@ -72,6 +72,13 @@ exports.updateSection = async (req, res) => {
       },
       { new: true }
     );
+
+    const course=await Course.populate({
+      path:"courseContent",
+      populate:{
+        path:"subSection",
+      },
+    }).exec();
     // return Response
     return res.status(200).json({
       success: true,

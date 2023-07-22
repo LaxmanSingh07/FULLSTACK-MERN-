@@ -7,8 +7,8 @@ import { useLocation, useNavigate, useParams } from "react-router-dom"
 import IconBtn from "../../Common/IconBtn"
 
 export default function VideoDetailsSidebar({ setReviewModal }) {
-  const [activeStatus, setActiveStatus] = useState("")
-  const [videoBarActive, setVideoBarActive] = useState("")
+  const [activeStatus, setActiveStatus] = useState(""); // which section is active
+  const [videoBarActive, setVideoBarActive] = useState("") // which video is active
   const navigate = useNavigate()
   const location = useLocation()
   const { sectionId, subSectionId } = useParams()
@@ -32,7 +32,9 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
         courseSectionData[currentSectionIndx]?.subSection?.[
           currentSubSectionIndx
         ]?._id
+        //set current section here
       setActiveStatus(courseSectionData?.[currentSectionIndx]?._id)
+      //set current subsection here
       setVideoBarActive(activeSubSectionId)
     })()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -41,7 +43,9 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
   return (
     <>
       <div className="flex h-[calc(100vh-3.5rem)] w-[320px] max-w-[350px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800">
+        {/* for buttons and headings */}
         <div className="mx-5 flex flex-col items-start justify-between gap-2 gap-y-4 border-b border-richblack-600 py-5 text-lg font-bold text-richblack-25">
+          {/* for button */}
           <div className="flex w-full items-center justify-between ">
             <div
               onClick={() => {

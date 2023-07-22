@@ -84,6 +84,7 @@ function App() {
 
         <Route path="*" element={<Error/>}  />
 
+        user?.accouty
       </Routes>
     </div>
   );
