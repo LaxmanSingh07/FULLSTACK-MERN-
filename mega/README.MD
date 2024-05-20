@@ -1,4 +1,4 @@
-# IN THIS SECTION I HAVE BUILD A ED-TECH 
+# IN THIS SECTION I HAVE BUILD AN ED-TECH 
 
 
 ## Structure of the User Model
